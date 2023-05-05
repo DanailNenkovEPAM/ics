@@ -11,6 +11,8 @@ jobs:
       - name: initialization
         run: echo "initialize"
 
+      - uses: actions/checkout@v3
+
       - name: setup java
         uses: actions/setup-java@v3
         with:
