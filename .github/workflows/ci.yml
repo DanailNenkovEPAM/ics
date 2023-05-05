@@ -10,3 +10,13 @@ jobs:
     steps:
       - name: initialization
         run: echo "initialize"
+
+      - name: setup java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: test java version
+        run: java -version
