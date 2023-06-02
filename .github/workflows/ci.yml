@@ -7,6 +7,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: Test
     steps:
       - name: initialization
         run: echo "initialize"
@@ -24,7 +25,7 @@ jobs:
         run: java -version
 
       - name: build with maven
-        run: nvm clean install -DskipTests
+        run: mvn clean install -DskipTests
 
       - name: Test with Maven
         run: mvn clean install
