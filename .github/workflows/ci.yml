@@ -22,3 +22,9 @@ jobs:
 
       - name: test java version
         run: java -version
+
+      - name: build with maven
+        run: nvm clean install -DskipTests
+
+      - name: Test with Maven
+        run: mvn clean install
