@@ -24,8 +24,9 @@ jobs:
       - name: test java version
         run: java -version
 
-      - name: build with maven
-        run: mvn --file ics/pom.xml clean install -DskipTests
+#      - name: build with maven
+#        run: mvn --file ics/pom.xml clean install -DskipTests
 
       - name: Test with Maven
-        run: mvn --file ics/pom.xml clean install
+        run: mvn --file ics/pom.xml test
+#        run: mvn --file ics/pom.xml clean install
