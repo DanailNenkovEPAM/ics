@@ -27,6 +27,9 @@ jobs:
 #      - name: build with maven
 #        run: mvn --file ics/pom.xml clean install -DskipTests
 
+      - name: Change directory
+        run: cd ics/src/test/java/com/vmware/ics/serviceTests
+
       - name: Test with Maven
-        run: mvn --file ics/pom.xml test
+        run: mvn --file ../../../../../../../pom.xml test
 #        run: mvn --file ics/pom.xml clean install
