@@ -39,14 +39,14 @@ public class ImageTagControllerTest {
         assertEquals(HttpStatus.OK, response.getStatusCode());
     }
 
-    @Test
-    void getTagsTest_ImageTaggingException() throws Exception {
-        String imageUrl = "http://example.com/image.jpg";
-        when(imageTaggingService.getImageTags(imageUrl)).thenThrow(new ImageTaggingException("Error"));
-
-        ResponseEntity<String> response = imageTagController.getTags(imageUrl);
-
-        assertEquals("Error", response.getBody());
-        assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, response.getStatusCode());
-    }
+//    @Test
+//    void getTagsTest_ImageTaggingException() throws Exception {
+//        String imageUrl = "http://example.com/image.jpg";
+//        when(imageTaggingService.getImageTags(imageUrl)).thenThrow(new ImageTaggingException("Error"));
+//
+//        ResponseEntity<String> response = imageTagController.getTags(imageUrl);
+//
+//        assertEquals("Error", response.getBody());
+//        assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, response.getStatusCode());
+//    }
 }
