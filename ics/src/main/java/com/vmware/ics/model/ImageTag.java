@@ -39,7 +39,6 @@ public class ImageTag {
 
     public ImageTag(Long imageId, Long tagId, Image image, Tag tag, double confidence) {
         this.id = new ImageTagKey(imageId, tagId);
-        //this.id = id;
         this.image = image;
         this.tag = tag;
         this.confidence = confidence;

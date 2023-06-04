@@ -3,8 +3,7 @@ package com.vmware.ics.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table
@@ -20,21 +19,21 @@ public class Tag {
 
     @OneToMany(mappedBy = "tag", fetch = FetchType.EAGER)
     @JsonIgnore
-    private Set<ImageTag> imageTags;
+    private List<ImageTag> imageTags;
 
     public Tag() {
-        this.imageTags = new HashSet<>();
+        this.imageTags = new ArrayList<>();
     }
 
     public Tag(String name) {
         this.name = name;
-        this.imageTags = new HashSet<>();
+        this.imageTags = new ArrayList<>();
     }
 
     public Tag(Long id, String name) {
         this.id = id;
         this.name = name;
-        this.imageTags = new HashSet<>();
+        this.imageTags = new ArrayList<>();
     }
 
     public Long getId() {
@@ -53,11 +52,11 @@ public class Tag {
         this.name = name;
     }
 
-    public Set<ImageTag> getImageTags() {
+    public List<ImageTag> getImageTags() {
         return imageTags;
     }
 
-    public void setImageTags(Set<ImageTag> imageTags) {
+    public void setImageTags(List<ImageTag> imageTags) {
         this.imageTags = imageTags;
     }
 

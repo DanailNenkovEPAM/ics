@@ -4,8 +4,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table
@@ -31,7 +30,7 @@ public class Image {
     @Column(name = "height")
     private double height;
     @OneToMany(mappedBy = "image", fetch = FetchType.EAGER)
-    private Set<ImageTag> imageTags;
+    private List<ImageTag> imageTags;
 
     public Image(Long id, String url, Timestamp addedOn, double width, double height) {
         this.id = id;
@@ -40,11 +39,11 @@ public class Image {
         this.service = "Imagga";
         this.width = width;
         this.height = height;
-        this.imageTags = new HashSet<>();
+        this.imageTags = new ArrayList<>();
     }
 
     public Image() {
-        this.imageTags = new HashSet<>();
+        this.imageTags = new ArrayList<>();
     }
 
     public Long getId() {
@@ -95,11 +94,11 @@ public class Image {
         this.height = height;
     }
 
-    public Set<ImageTag> getImageTags() {
+    public List<ImageTag> getImageTags() {
         return imageTags;
     }
 
-    public void setImageTags(Set<ImageTag> imageTags) {
+    public void setImageTags(List<ImageTag> imageTags) {
         this.imageTags = imageTags;
     }
 
