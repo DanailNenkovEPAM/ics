@@ -8,12 +8,12 @@ import java.io.Serializable;
 @Embeddable
 public class ImageTagKey implements Serializable {
     @Column(name = "image_id")
-    private Integer imageId;
+    private Long imageId;
 
     @Column(name = "tag_id")
-    private Integer tagId;
+    private Long tagId;
 
-    public ImageTagKey(Integer imageId, Integer tagId) {
+    public ImageTagKey(Long imageId, Long tagId) {
         this.imageId = imageId;
         this.tagId = tagId;
     }
@@ -22,19 +22,19 @@ public class ImageTagKey implements Serializable {
 
     }
 
-    public Integer getImageId() {
+    public Long getImageId() {
         return imageId;
     }
 
-    public void setImageId(Integer imageId) {
+    public void setImageId(Long imageId) {
         this.imageId = imageId;
     }
 
-    public Integer getTagId() {
+    public Long getTagId() {
         return tagId;
     }
 
-    public void setTagId(Integer tagId) {
+    public void setTagId(Long tagId) {
         this.tagId = tagId;
     }
 }

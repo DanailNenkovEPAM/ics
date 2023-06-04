@@ -37,7 +37,7 @@ public class ImageTag {
         this.name = this.tag.getName();
     }
 
-    public ImageTag(int imageId, int tagId, Image image, Tag tag, double confidence) {
+    public ImageTag(Long imageId, Long tagId, Image image, Tag tag, double confidence) {
         this.id = new ImageTagKey(imageId, tagId);
         //this.id = id;
         this.image = image;
