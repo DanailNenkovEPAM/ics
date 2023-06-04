@@ -2,7 +2,7 @@ package com.vmware.ics.service;
 
 import com.vmware.ics.model.ImageTagLink;
 import com.vmware.ics.model.Tag;
-import com.vmware.ics.repository.jpaRepository.JpaTagRepository;
+import com.vmware.ics.repository.TagRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,10 +12,10 @@ import java.util.*;
 @Service
 public class TagService {
 
-    private final JpaTagRepository tagRepo;
+    private final TagRepository tagRepo;
 
     @Autowired
-    public TagService(JpaTagRepository tagRepo) {
+    public TagService(TagRepository tagRepo) {
         this.tagRepo = tagRepo;
     }
 

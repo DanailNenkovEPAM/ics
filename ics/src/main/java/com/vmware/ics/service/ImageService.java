@@ -2,7 +2,7 @@ package com.vmware.ics.service;
 
 import com.vmware.ics.model.Image;
 import com.vmware.ics.model.ImageTagLink;
-import com.vmware.ics.repository.jpaRepository.JpaImageRepository;
+import com.vmware.ics.repository.ImageRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,11 +11,11 @@ import java.util.*;
 @Service
 public class ImageService {
 
-    private final JpaImageRepository imageRepo;
+    private final ImageRepository imageRepo;
 
     @Autowired
-    public ImageService(JpaImageRepository jpaImageRepository) {
-        this.imageRepo = jpaImageRepository;
+    public ImageService(ImageRepository imageRepository) {
+        this.imageRepo = imageRepository;
     }
 
     public List<Image> getAllImages() {
