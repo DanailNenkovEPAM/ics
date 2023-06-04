@@ -46,6 +46,14 @@ public class Image {
         this.imageTagLinks = new ArrayList<>();
     }
 
+    public Image(String url, Timestamp addedOn, String service, int width, int height) {
+        this.url = url;
+        this.addedOn = addedOn;
+        this.service = service;
+        this.width = width;
+        this.height = height;
+    }
+
     public Long getId() {
         return id;
     }

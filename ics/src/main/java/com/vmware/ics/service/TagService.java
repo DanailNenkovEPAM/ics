@@ -74,11 +74,11 @@ public class TagService {
         this.tagRepo.deleteById(id);
     }
 
-    public List<ImageTagLink> getImageTagLinkByTagId(Long id) {
+    public List<ImageTagLink> getImageTagLinksByTagId(Long id) {
         return this.getTagByIdService(id).getImageTagLinks();
     }
 
-    public List<ImageTagLink> getImageTagLinkByTagName(String name) {
+    public List<ImageTagLink> getImageTagLinksByTagName(String name) {
         return this.getTagByNameService(name).getImageTagLinks();
     }
 

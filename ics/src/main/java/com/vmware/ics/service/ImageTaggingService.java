@@ -15,7 +15,7 @@ public class ImageTaggingService {
     private static final String API_SECRET = System.getenv("API_SECRET");
     private static final String ENDPOINT_URL = "https://api.imagga.com/v2/tags";
 
-    public String getImageTags(String imageUrl) throws Exception {
+    public static String getImageTags(String imageUrl) throws Exception {
         String credentialsToEncode = API_KEY + ":" + API_SECRET;
         String basicAuth = Base64.getEncoder().encodeToString(credentialsToEncode.getBytes(StandardCharsets.UTF_8));
         String url = ENDPOINT_URL + "?image_url=" + imageUrl;
