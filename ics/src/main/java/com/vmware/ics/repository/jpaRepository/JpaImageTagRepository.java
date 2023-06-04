@@ -1,4 +1,4 @@
-package com.vmware.ics.repository;
+package com.vmware.ics.repository.jpaRepository;
 
 import com.vmware.ics.model.Image;
 import com.vmware.ics.model.ImageTag;
