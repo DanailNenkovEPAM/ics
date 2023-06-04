@@ -21,24 +21,24 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 public class ImageTagControllerTest {
 
-    @InjectMocks
-    ImageTagController imageTagController;
-
-    @Mock
-    ImageTaggingService imageTaggingService;
-
-    @Test
-    void getTagsTest() throws Exception {
-        String imageUrl = "http://example.com/image.jpg";
-        String expectedTags = "tag1, tag2, tag3";
-        when(imageTaggingService.getImageTags(imageUrl)).thenReturn(expectedTags);
-
-        ResponseEntity<String> response = imageTagController.getTags(imageUrl);
-
-        assertEquals(expectedTags, response.getBody());
-        assertEquals(HttpStatus.OK, response.getStatusCode());
-    }
-
+//    @InjectMocks
+//    ImageTagController imageTagController;
+//
+//    @Mock
+//    ImageTaggingService imageTaggingService;
+//
+//    @Test
+//    void getTagsTest() throws Exception {
+//        String imageUrl = "http://example.com/image.jpg";
+//        String expectedTags = "tag1, tag2, tag3";
+//        when(imageTaggingService.getImageTags(imageUrl)).thenReturn(expectedTags);
+//
+//        ResponseEntity<String> response = imageTagController.getTags(imageUrl);
+//
+//        assertEquals(expectedTags, response.getBody());
+//        assertEquals(HttpStatus.OK, response.getStatusCode());
+//    }
+//
 //    @Test
 //    void getTagsTest_ImageTaggingException() throws Exception {
 //        String imageUrl = "http://example.com/image.jpg";

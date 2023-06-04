@@ -8,6 +8,6 @@ import java.util.Optional;
 
 @Repository
 public interface JpaImageRepository extends JpaRepository<Image, Long> {
-    Optional<Image> getImageById(Integer id);
+    Optional<Image> getImageById(Long id);
     Optional<Image> getImageByUrl(String url);
 }

@@ -5,9 +5,9 @@ import jakarta.persistence.*;
 
 @Entity
 @Table
-public class ImageTag {
+public class ImageTagLink {
     @EmbeddedId
-    private ImageTagKey id;
+    private ImageTagLinkKey id;
 
     @ManyToOne
     @MapsId("imageId")
@@ -27,28 +27,28 @@ public class ImageTag {
     @Column
     private String name;
 
-    public ImageTag() {
+    public ImageTagLink() {
     }
 
-    public ImageTag(Image image, Tag tag, int confidence) {
+    public ImageTagLink(Image image, Tag tag, int confidence) {
         this.image = image;
         this.tag = tag;
         this.confidence = confidence;
         this.name = this.tag.getName();
     }
 
-    public ImageTag(Long imageId, Long tagId, Image image, Tag tag, double confidence) {
-        this.id = new ImageTagKey(imageId, tagId);
+    public ImageTagLink(Long imageId, Long tagId, Image image, Tag tag, double confidence) {
+        this.id = new ImageTagLinkKey(imageId, tagId);
         this.image = image;
         this.tag = tag;
         this.confidence = confidence;
     }
 
-    public ImageTagKey getId() {
+    public ImageTagLinkKey getId() {
         return id;
     }
 
-    public void setId(ImageTagKey id) {
+    public void setId(ImageTagLinkKey id) {
         this.id = id;
     }
 

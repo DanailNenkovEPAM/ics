@@ -19,21 +19,21 @@ public class Tag {
 
     @OneToMany(mappedBy = "tag", fetch = FetchType.EAGER)
     @JsonIgnore
-    private List<ImageTag> imageTags;
+    private List<ImageTagLink> imageTagLinks;
 
     public Tag() {
-        this.imageTags = new ArrayList<>();
+        this.imageTagLinks = new ArrayList<>();
     }
 
     public Tag(String name) {
         this.name = name;
-        this.imageTags = new ArrayList<>();
+        this.imageTagLinks = new ArrayList<>();
     }
 
     public Tag(Long id, String name) {
         this.id = id;
         this.name = name;
-        this.imageTags = new ArrayList<>();
+        this.imageTagLinks = new ArrayList<>();
     }
 
     public Long getId() {
@@ -52,16 +52,16 @@ public class Tag {
         this.name = name;
     }
 
-    public List<ImageTag> getImageTags() {
-        return imageTags;
+    public List<ImageTagLink> getImageTagLinks() {
+        return imageTagLinks;
     }
 
-    public void setImageTags(List<ImageTag> imageTags) {
-        this.imageTags = imageTags;
+    public void setImageTagLinks(List<ImageTagLink> imageTagLinks) {
+        this.imageTagLinks = imageTagLinks;
     }
 
-    public void addImageTags(ImageTag imageTag){
-        this.imageTags.add(imageTag);
+    public void addImageTagLinks(ImageTagLink imageTagLink){
+        this.imageTagLinks.add(imageTagLink);
     }
 
     @Override

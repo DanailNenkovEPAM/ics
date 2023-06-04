@@ -1,17 +1,16 @@
 package com.vmware.ics.repository.jpaRepository;
 
 import com.vmware.ics.model.Image;
-import com.vmware.ics.model.ImageTag;
-import com.vmware.ics.model.ImageTagKey;
+import com.vmware.ics.model.ImageTagLink;
+import com.vmware.ics.model.ImageTagLinkKey;
 import com.vmware.ics.model.Tag;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 import java.util.Set;
 
-public interface JpaImageTagRepository extends JpaRepository<ImageTag, ImageTagKey> {
+public interface JpaImageTagLinkRepository extends JpaRepository<ImageTagLink, ImageTagLinkKey> {
     Optional<Set<Tag>> getConnectionByImageId(Long image_id);
     Optional<Set<Image>> getConnectionByTagId(Long tag_id);
-    Optional<ImageTag> getConnectionById(Long id);
-    //Optional<ImageTag> getConnectionByImageTagKey(ImageTagKey connectionKey);
+    Optional<ImageTagLink> getConnectionById(Long id);
 }

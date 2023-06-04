@@ -6,19 +6,19 @@ import jakarta.persistence.Embeddable;
 import java.io.Serializable;
 
 @Embeddable
-public class ImageTagKey implements Serializable {
+public class ImageTagLinkKey implements Serializable {
     @Column(name = "image_id")
     private Long imageId;
 
     @Column(name = "tag_id")
     private Long tagId;
 
-    public ImageTagKey(Long imageId, Long tagId) {
+    public ImageTagLinkKey(Long imageId, Long tagId) {
         this.imageId = imageId;
         this.tagId = tagId;
     }
 
-    public ImageTagKey() {
+    public ImageTagLinkKey() {
 
     }
 

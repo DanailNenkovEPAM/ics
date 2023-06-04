@@ -30,7 +30,7 @@ public class Image {
     @Column(name = "height")
     private double height;
     @OneToMany(mappedBy = "image", fetch = FetchType.EAGER)
-    private List<ImageTag> imageTags;
+    private List<ImageTagLink> imageTagLinks;
 
     public Image(Long id, String url, Timestamp addedOn, double width, double height) {
         this.id = id;
@@ -39,11 +39,11 @@ public class Image {
         this.service = "Imagga";
         this.width = width;
         this.height = height;
-        this.imageTags = new ArrayList<>();
+        this.imageTagLinks = new ArrayList<>();
     }
 
     public Image() {
-        this.imageTags = new ArrayList<>();
+        this.imageTagLinks = new ArrayList<>();
     }
 
     public Long getId() {
@@ -94,16 +94,16 @@ public class Image {
         this.height = height;
     }
 
-    public List<ImageTag> getImageTags() {
-        return imageTags;
+    public List<ImageTagLink> getImageTagLinks() {
+        return imageTagLinks;
     }
 
-    public void setImageTags(List<ImageTag> imageTags) {
-        this.imageTags = imageTags;
+    public void setImageTagLinks(List<ImageTagLink> imageTagLinks) {
+        this.imageTagLinks = imageTagLinks;
     }
 
-    public void addImageTags(ImageTag imageTag){
-        this.imageTags.add(imageTag);
+    public void addImageTagLinks(ImageTagLink imageTagLink){
+        this.imageTagLinks.add(imageTagLink);
     }
 
     @Override
