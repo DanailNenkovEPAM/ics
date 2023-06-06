@@ -1,6 +1,6 @@
 package com.vmware.ics.model;
 
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
@@ -9,6 +9,8 @@ import java.util.*;
 @Entity
 @Table
 @JsonPropertyOrder({"id", "url", "addedOn", "tags", "width", "height"})
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "id")
 public class Image {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,6 +32,8 @@ public class Image {
     @Column(name = "height")
     private double height;
     @OneToMany(mappedBy = "image", fetch = FetchType.EAGER)
+    //@JsonIgnore
+    @JsonProperty("imageTagLinks")
     private List<ImageTagLink> imageTagLinks;
 
     public Image(Long id, String url, Timestamp addedOn, double width, double height) {

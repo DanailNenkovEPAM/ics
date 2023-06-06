@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.swing.*;
-import java.io.IOException;
 import java.net.URL;
 import java.sql.Timestamp;
 import java.util.*;
@@ -41,7 +40,7 @@ public class ImageController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Image>> getImagesController(@RequestParam(required = false) Optional<List<Tag>> tags) throws JsonProcessingException {
+    public ResponseEntity<List<Image>> getImages(@RequestParam(required = false) Optional<List<Tag>> tags) throws JsonProcessingException {
         if (tags.isPresent()) {
             List<Tag> availableTags = tags.get();
             List<Image> imagesToReturn = new ArrayList<>();
@@ -63,7 +62,7 @@ public class ImageController {
     }
 
     @GetMapping("{id}")
-    public Image getImageByIdController(@PathVariable Long id) {
+    public Image getImageById(@PathVariable Long id) {
         try {
             return imageService.getImageByIdService(id);
         } catch (NoSuchElementException e) {
@@ -73,7 +72,7 @@ public class ImageController {
 
     @GetMapping("url")
     @ResponseBody
-    public Image getImageByURLController(@RequestParam String url) {
+    public Image getImageByURL(@RequestParam String url) {
         try {
             System.out.println(url);
             return imageService.getImageByURLService(url);
