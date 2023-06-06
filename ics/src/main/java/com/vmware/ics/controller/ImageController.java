@@ -1,5 +1,7 @@
 package com.vmware.ics.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.vmware.ics.model.*;
 
 import com.vmware.ics.service.ImageService;
@@ -39,7 +41,7 @@ public class ImageController {
     }
 
     @GetMapping
-    public List<Image> getImagesController(@RequestParam(required = false) Optional<List<Tag>> tags) {
+    public ResponseEntity<List<Image>> getImagesController(@RequestParam(required = false) Optional<List<Tag>> tags) throws JsonProcessingException {
         if (tags.isPresent()) {
             List<Tag> availableTags = tags.get();
             List<Image> imagesToReturn = new ArrayList<>();
@@ -52,10 +54,12 @@ public class ImageController {
                 }
             }
 
-            return imagesToReturn;
+            return ResponseEntity.of(Optional.of(imagesToReturn));
         }
-
-        return imageService.getAllImages();
+        List<Image> img = imageService.getAllImages();
+        ObjectMapper objectMapper = new ObjectMapper();
+        System.out.println(objectMapper.writeValueAsString(img.get(0)));
+        return ResponseEntity.of(Optional.ofNullable(imageService.getAllImages()));
     }
 
     @GetMapping("{id}")
@@ -93,12 +97,13 @@ public class ImageController {
 
     @Transactional
     @PostMapping
-    public ResponseEntity<Void> create(@RequestBody final String imageURL) throws Exception {
+    public ResponseEntity<Void> create(@RequestBody final Map<String,String> json) throws Exception {
         //Check if URL has Text
+        String imageURL = json.get("imageUrl");
+
         if (!StringUtils.hasText(imageURL)) {
             throw new IllegalArgumentException("Image URL must be specified!");
         }
-
 
         //System.out.println(imageURL);
 
