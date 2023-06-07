@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Analyzer</title>
+  </head>
+  <body>
+    <header>
+      <h1>Image Analyzer</h1>
+      <nav>
+        <a routerLink="/analyze" id="analyze">Analyze</a>
+        <a routerLink="/gallery" id="gallery">Gallery</a>
+      </nav>
+    </header>
+    <main>
+      <form (ngSubmit)="submitImage()">
+        <input
+          type="url"
+          [(ngModel)]="imageUrl"
+          name="imageUrl"
+          placeholder="Enter Image URL"
+          required
+        />
+        <button type="submit">Analyze</button>
+      </form>
+      <div id="message">{{ message }}</div>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+<div>
+  <h1>Image Viewer</h1>
+  <nav>
+    <a routerLink="/analyze">Analyze</a>
+    <a routerLink="/gallery">Gallery</a>
+  </nav>
+  <img [src]="image.url" alt="Selected image" />
+  <p>Date and time: {{ image.datetime }}</p>
+  <div *ngFor="let tag of tags">
+    <span
+      (click)="searchTag(tag.name)"
+      [title]="'Confidence: ' + tag.confidence"
+      >{{ tag.name }}</span
+    >
+  </div>
+</div>
